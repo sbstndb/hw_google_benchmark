@@ -3,6 +3,8 @@ project(vector_addition_benchmark)
 
 option(BENCHMARK_DOWNLOAD_DEPENDENCIES "Download Google Benchmark from GitHub" ON)
 
+set(BENCHMARK_ENABLE_LIBPFM ON CACHE BOOL "Use LibPFM for HW counters")
+
 if(BENCHMARK_DOWNLOAD_DEPENDENCIES)
   include(FetchContent)
   FetchContent_Declare(
@@ -12,6 +14,7 @@ if(BENCHMARK_DOWNLOAD_DEPENDENCIES)
   )
   FetchContent_MakeAvailable(benchmark)
 endif()
+
 
 
 add_executable(vector_addition_benchmark main.cpp)
